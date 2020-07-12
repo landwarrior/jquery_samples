@@ -36,13 +36,25 @@ window.onload = function() {
   document.getElementById('cont1_2').onfocus = function() {
     let result1_2 = document.getElementById('result1_2').innerText;
     document.getElementById('result1_2').innerText = result1_2 + 'focusされた';
-  };
+  }
 
   document.getElementById('cont1_2').onblur = function() {
     let result1_2 = document.getElementById('result1_2').innerText;
     document.getElementById('result1_2').innerText = result1_2 + 'blurされた';
-  };
+  }
+
+  document.getElementById('cont2_2').onchange = function() {
+    let cont2_2 = document.getElementById('cont2_2').value;
+    document.getElementById('result2_2').innerText = cont2_2;
+  }
+
+  document.getElementById('cont3_2').oninput = function() {
+    let cont3_2 = document.getElementById('cont3_2').value;
+    document.getElementById('result3_2').innerText = cont3_2;
+  }
 }
+
+
 // 先頭に書いたjQueryのサンプルは、以下のように書いてもいい
 $(document).ready(function() {
   // 何かしらの処理
