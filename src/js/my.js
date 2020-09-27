@@ -54,7 +54,6 @@ window.onload = function() {
   }
 }
 
-
 // 先頭に書いたjQueryのサンプルは、以下のように書いてもいい
 $(document).ready(function() {
   // 何かしらの処理
