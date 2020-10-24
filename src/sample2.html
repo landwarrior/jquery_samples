@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sample2</title>
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+  html, body {
+    background-color: #f0f0f0;
+    color: #636b6f;
+    font-family: 'Nunito', 'Noto Sans JP', sans-serif;
+    letter-spacing: .1rem;
+  }
+  code {
+    border-radius: 5px;
+    border: solid 1px #f0f0f0;
+    background-color: #f0f0f0;
+    padding: 0 .1rem;
+  }
+  pre {
+    border-radius: 5px;
+    border: solid 1px #f0f0f0;
+    background-color: #f0f0f0;
+  }
+  .sample1 #id-test {
+    color: red;
+  }
+  /* class指定 */
+  .sample1 .class-test {
+    color: green;
+  }
+  /* 要素指定 */
+  .sample1 span {
+    color: blue;
+  }
+  #sample2-table {
+    border-collapse: collapse;
+  }
+  #sample2-table th {
+    border: solid 1px lightgrey;
+    padding: .3rem;
+    background-color: #d6ffd6;
+  }
+  #sample2-table td {
+    border: solid 1px lightgrey;
+    padding: .3rem;
+  }
+  #sample2-table td:nth-child(odd) {
+    background-color: #ffbdbd;
+  }
+  #sample2-table tr:nth-child(even) {
+    background-color: #bdcfff;
+  }
+  #sample2-table tr:nth-child(even)>td:nth-child(odd) {
+    background-color: #e7c8ff;
+  }
+  </style>
+  <script>
+    // 画面読み込み時にロードする
+    $(function() {
+      // sample2-btn1 というidがついた要素をクリックされた時にイベントを拾って実行する
+      $('#sample2-btn1').click(function() {
+        var result_str = '';
+        // sample2-table というidがついた要素内にある tbody 要素内にある tr をループ処理する
+        $('#sample2-table tbody tr ').each(function() {
+          // イベントを発生させた要素は this で表される
+          result_str += $(this).find('td:nth-child(3)').text() + "<br>";
+        });
+        // ループ処理が終わったので画面に書き込む
+        $('#sample2-btn1-result').html(result_str);
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header">
+        <h2>CSSの確認</h2>
+      </div>
+      <div class="card-body sample1">
+        CSSの指定は、style属性を使って要素に直接書くのが最も強い。
+        <br>その次が<code>id</code>指定、その次が<code>class</code>指定、その次が要素指定。
+        <br>例えば以下のようなスタイルを<code>span</code>要素に当てる場合。
+        <pre><code style="display: block">/* id指定 */
+#id-test {
+  color: red;
+}
+/* class指定 */
+.class-test {
+  color: green;
+}
+/* 要素指定 */
+span {
+  color: blue;
+}
+</code></pre>
+      対象の要素は以下のように記載。
+      <pre><code style="display: block">&lt;span id="id-test" class="class-test"&gt;ほげほげふーばー$lt;/span&gt;</code></pre>
+      <span id="id-test" class="class-test">ほげほげふーばー</span>
+      <br>idを取り除くと。
+      <br><span class="class-test">ほげほげふーばー</span>
+      <br>classも取り除くと。
+      <br><span>ほげほげふーばー</span>
+      <br>
+      <br>※実際には<code>sample1</code>というCSSのクラス配下のみにスタイルが当たるように記載している
+      </div>
+    </div>
+    <br>
+    <div class="card">
+      <div class="card-header">
+        <h2>jQueryでの操作</h2>
+      </div>
+      <div class="card-body">
+        コードはソースを見てください
+        <div style="display: flex">
+          <div style="flex: 0 0 auto">
+            <table id="sample2-table">
+              <thead>
+                <tr>
+                  <th>あああ</th>
+                  <th>いいい</th>
+                  <th>ううう</th>
+                  <th>えええ</th>
+                  <th>おおお</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>かかか</td>
+                  <td>ききき</td>
+                  <td>くくく</td>
+                  <td>けけけ</td>
+                  <td>こここ</td>
+                </tr>
+                <tr>
+                  <td>さささ</td>
+                  <td>ししし</td>
+                  <td>すすす</td>
+                  <td>せせせ</td>
+                  <td>そそそ</td>
+                </tr>
+                <tr>
+                  <td>たたた</td>
+                  <td>ちちち</td>
+                  <td>つつつ</td>
+                  <td>ててて</td>
+                  <td>ととと</td>
+                </tr>
+                <tr>
+                  <td>ななな</td>
+                  <td>ににに</td>
+                  <td>ぬぬぬ</td>
+                  <td>ねねね</td>
+                  <td>ののの</td>
+                </tr>
+                <tr>
+                  <td>ははは</td>
+                  <td>ひひひ</td>
+                  <td>ふふふ</td>
+                  <td>へへへ</td>
+                  <td>ほほほ</td>
+                </tr>
+                <tr>
+                  <td>ままま</td>
+                  <td>みみみ</td>
+                  <td>むむむ</td>
+                  <td>めめめ</td>
+                  <td>ももも</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="flex: 0 0 auto">
+            <div style="padding: 10px">
+              <button type="butotn" id="sample2-btn1" class="btn btn-primary">jQueryでテーブル内の３列目（うの段）を下に出してみる</button>
+            </div>
+            <div id="sample2-btn1-result" style="padding: 10px">
+              結果をここに上書き表示
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" defer></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" defer></script>
+  <title>Document</title>
+  <script>
+  window.onload = function() {
+    const start = Date.now();
+    for (let i = 0; i < 1000000; i++) {
+      document.getElementById('result');
+    }
+    const end = Date.now();
+    document.querySelector('#result').innerText = end - start;
+    const start2 = Date.now();
+    for (let i = 0; i < 1000000; i++) {
+      document.querySelector('#result2');
+    }
+    const end2 = Date.now();
+    document.querySelector('#result2').innerText = end2 - start2;
+    const start3 = Date.now();
+    for (let i = 0; i < 1000000; i++) {
+      $('#result3');
+    }
+    const end3 = Date.now();
+    $('#result3').text(end3 - start3);
+
+    document.getElementById('button1').addEventListener('click', function() {
+      const start = Date.now();
+      for (let i = 0; i < 1000000; i++) {
+        this.innerText;
+      }
+      const end = Date.now();
+      document.getElementById('button_result1').innerText = end - start;
+    });
+    document.getElementById('button2').onclick = function() {
+      const start = Date.now();
+      for (let i = 0; i < 1000000; i++) {
+        document.getElementById('button2').innerText;
+      }
+      const end = Date.now();
+      document.getElementById('button_result2').innerText = end - start;
+    };
+
+    $('#button3').click(function() {
+      const start = Date.now();
+      for (let i = 0; i < 1000000; i++) {
+        $(this).text();
+      }
+      const end = Date.now();
+      $('#button_result3').text(end - start);
+    });
+    $('#button4').click(function() {
+      const start = Date.now();
+      for (let i = 0; i < 1000000; i++) {
+        $('#button4').text();
+      }
+      const end = Date.now();
+      $('#button_result4').text(end - start);
+    });
+  }
+
+  </script>
+</head>
+<body>
+  <h1>Hello, World!</h1>
+  <hr>
+  <div>document.getElementById</div>
+  <div id="result"></div>
+  <div>document.querySelector</div>
+  <div id="result2"></div>
+  <div>jquery</div>
+  <div id="result3"></div>
+  <hr>
+  <div>click this</div>
+  <button type="button" id="button1">button1</button>
+  <div id="button_result1"></div>
+  <div>click id</div>
+  <button type="button" id="button2">button2</button>
+  <div id="button_result2"></div>
+  <hr>
+  <div>jquery click this</div>
+  <button type="button" id="button3">button3</button>
+  <div id="button_result3"></div>
+  <div>jquery click id</div>
+  <button type="button" id="button4">button4</button>
+  <div id="button_result4"></div>
+</body>
+</html>
