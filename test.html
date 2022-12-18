@@ -34,8 +34,8 @@
 
     .dropdown_multilayer_menu_third::after {
       content: "\f0da";
-      font-family: "Font Awesome 5 Free"
-        font-weight: 400;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 400;
       position: absolute;
       top: 8px;
       right: 5px;
@@ -52,9 +52,10 @@
     .dropdown_multilayer:hover .dropdown_multilayer_menu_sub {
       visibility: visible;
     }
+
   </style>
   <script>
-    window.onload = function() {
+    window.onload = function () {
       const start = Date.now();
       for (let i = 0; i < 1000000; i++) {
         document.getElementById('result');
@@ -74,7 +75,7 @@
       const end3 = Date.now();
       $('#result3').text(end3 - start3);
 
-      document.getElementById('button1').addEventListener('click', function() {
+      document.getElementById('button1').addEventListener('click', function () {
         const start = Date.now();
         for (let i = 0; i < 1000000; i++) {
           this.innerText;
@@ -82,7 +83,7 @@
         const end = Date.now();
         document.getElementById('button_result1').innerText = end - start;
       });
-      document.getElementById('button2').onclick = function() {
+      document.getElementById('button2').onclick = function () {
         const start = Date.now();
         for (let i = 0; i < 1000000; i++) {
           document.getElementById('button2').innerText;
@@ -91,7 +92,7 @@
         document.getElementById('button_result2').innerText = end - start;
       };
 
-      $('#button3').click(function() {
+      $('#button3').click(function () {
         const start = Date.now();
         for (let i = 0; i < 1000000; i++) {
           $(this).text();
@@ -99,7 +100,7 @@
         const end = Date.now();
         $('#button_result3').text(end - start);
       });
-      $('#button4').click(function() {
+      $('#button4').click(function () {
         const start = Date.now();
         for (let i = 0; i < 1000000; i++) {
           $('#button4').text();
